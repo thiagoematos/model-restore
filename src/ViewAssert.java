@@ -2,11 +2,11 @@ import java.util.Comparator;
 
 class ViewAssert {
 
-    private Database database;
+    private ModelRepository database;
 
     private static final String errorMessageFormat = "w%dy%d %s -- Expected: %s Returned: %s\n";
 
-    static ViewAssert on(Database database) {
+    static ViewAssert on(ModelRepository database) {
         var viewAssert = new ViewAssert();
         viewAssert.database = database;
         return viewAssert;
@@ -16,7 +16,7 @@ class ViewAssert {
                           int year,
                           String actualX, String actualY,
                           String lastX, String lastY) {
-        var snapshot = database.snapshot(week, year);
+        var snapshot = database.restore(week, year);
         if (notEquals(snapshot.actualX, actualX)) {
             printErrorMessage(week, year, "actualX", actualX, snapshot.actualX);
         }

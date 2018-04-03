@@ -1,8 +1,8 @@
 
-public class Main {
+public class Controller {
 
     public static void main(String[] args) {
-        var database = new Database();
+        var database = new ModelRepository();
         database
                 .add("a", 1)
 

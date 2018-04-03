@@ -4,7 +4,7 @@ class Log {
     int week;
     int year;
     String field;
-    String value;
+    private String value;
 
     Log(int id, int week, int year, String field, String value) {
         this.id = id;
@@ -14,8 +14,12 @@ class Log {
         this.value = value;
     }
 
-    int byId() {
+    int id() {
         return this.id;
+    }
+
+    String value() {
+        return this.value;
     }
 
     @Override
